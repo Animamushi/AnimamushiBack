@@ -1,0 +1,7 @@
+{
+    "id": 1,
+    "name": "first of all",
+    "anime_id": 12,
+    "video": "/api/v1/watch/video",
+    "range": "bytes=0-"
+}
