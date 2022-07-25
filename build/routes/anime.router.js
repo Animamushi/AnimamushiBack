@@ -20,13 +20,14 @@ const AnimeRouter = express_1.default.Router();
 const service = new AnimeServices_1.default();
 AnimeRouter.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const animes = yield (yield service.getAnimesAllData());
-    res.json(animes);
+    //console.log(animes)
+    res.json({ data: animes });
 }));
 AnimeRouter.get('/:id', (0, validator_handler_1.default)(anime_schema_1.getAnimeSchema, 'params'), (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
         const anime = yield service.getAnimeById(parseInt(id));
-        res.json(anime);
+        res.json({ data: anime });
     }
     catch (error) {
         next(error);

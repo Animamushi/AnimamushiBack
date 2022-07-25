@@ -10,7 +10,7 @@ const service = new EpisodeService();
 EpisodesRouter.get('/',
     async (_req, res) => {
         const episodeData = await service.getDefaultEpisodes(episodes);
-        res.json(episodeData);
+        res.json({ data: episodeData });
     }
 );
 
@@ -20,7 +20,7 @@ EpisodesRouter.get('/:id',
         try {
             const { id } = req.params;
             const episode = await service.getEpisodesByAnimeId(parseInt(id));
-            res.json(episode);
+            res.json({ data: episode });
         } catch (error) {
             next(error);
         }

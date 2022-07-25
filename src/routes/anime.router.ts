@@ -9,7 +9,8 @@ const service = new AnimeService();
 AnimeRouter.get('/',
     async (_req, res) => {
         const animes = await (await service.getAnimesAllData());
-        res.json(animes);
+        //console.log(animes)
+        res.json({ data: animes });
     });
 
 AnimeRouter.get('/:id',
@@ -18,7 +19,7 @@ AnimeRouter.get('/:id',
         try {
             const { id } = req.params;
             const anime = await service.getAnimeById(parseInt(id));
-            res.json(anime);
+            res.json({ data: anime });
         } catch (error) {
             next(error);
         }

@@ -27,8 +27,6 @@ export default class AnimeService {
 
         const anime: Anime | undefined = this.animesData?.find(({ id }: { id: any }) => id === +id_anime);
 
-        console.log(anime)
-
         if (!anime) {
 
             const response = await fetch(`https://kitsu.io/api/edge/anime/${id_anime}`, {

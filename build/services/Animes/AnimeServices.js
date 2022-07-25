@@ -34,7 +34,6 @@ class AnimeService {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
             const anime = (_a = this.animesData) === null || _a === void 0 ? void 0 : _a.find(({ id }) => id === +id_anime);
-            console.log(anime);
             if (!anime) {
                 const response = yield fetch(`https://kitsu.io/api/edge/anime/${id_anime}`, {
                     method: 'GET',

@@ -21,13 +21,13 @@ const EpisodesRouter = express_1.default.Router();
 const service = new EpisodeServices_1.default();
 EpisodesRouter.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const episodeData = yield service.getDefaultEpisodes(Episodes_json_1.default);
-    res.json(episodeData);
+    res.json({ data: episodeData });
 }));
 EpisodesRouter.get('/:id', (0, validator_handler_1.default)(episode_schema_1.getEpisodeSchema, 'params'), (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
         const episode = yield service.getEpisodesByAnimeId(parseInt(id));
-        res.json(episode);
+        res.json({ data: episode });
     }
     catch (error) {
         next(error);
